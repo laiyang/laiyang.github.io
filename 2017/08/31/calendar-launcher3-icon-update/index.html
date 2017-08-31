@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>桌面日历图标更新日期功能 | laheman</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android,Calendar" />
+    
+    <meta name="description" content="1. 在加载图标的类IconCache中增加以下代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566private CacheEntry cacheLocked(ComponentName compon">
+<meta name="keywords" content="Android,Calendar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="桌面日历图标更新日期功能">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/calendar-launcher3-icon-update/index.html">
+<meta property="og:site_name" content="laheman">
+<meta property="og:description" content="1. 在加载图标的类IconCache中增加以下代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566private CacheEntry cacheLocked(ComponentName compon">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-31T09:40:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="桌面日历图标更新日期功能">
+<meta name="twitter:description" content="1. 在加载图标的类IconCache中增加以下代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566private CacheEntry cacheLocked(ComponentName compon">
+    
+
+    
+        <link rel="alternate" href="/" title="laheman" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/board">哈哈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/archives">归档</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Android/Calendar/">Calendar</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-calendar-launcher3-icon-update" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        桌面日历图标更新日期功能
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/08/31/calendar-launcher3-icon-update/" class="article-date">
+            <time datetime="2017-08-31T09:19:33.000Z" itemprop="datePublished">2017-08-31</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/Calendar/">Calendar</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="1-在加载图标的类IconCache中增加以下代码"><a href="#1-在加载图标的类IconCache中增加以下代码" class="headerlink" title="1. 在加载图标的类IconCache中增加以下代码"></a>1. 在加载图标的类IconCache中增加以下代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> CacheEntry <span class="title">cacheLocked</span><span class="params">(ComponentName componentName,</span></span></div><div class="line"><span class="function"><span class="params">        LauncherActivityInfoCompat info,</span></span></div><div class="line"><span class="function"><span class="params">        UserHandleCompat user, <span class="keyword">boolean</span> usePackageIcon, <span class="keyword">boolean</span> useLowResIcon)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (LauncherLog.DEBUG_LAYOUT) &#123;</div><div class="line">        LauncherLog.d(TAG, <span class="string">"cacheLocked: componentName = "</span> + componentName</div><div class="line">                + <span class="string">", info = "</span> + info);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ComponentKey cacheKey = <span class="keyword">new</span> ComponentKey(componentName, user);</div><div class="line">    CacheEntry entry = mCache.get(cacheKey);</div><div class="line">    <span class="comment">/// add show date feature in calendar icon @&#123;</span></div><div class="line">    <span class="comment">// 当刷新的组件为日历时,清除此entry</span></div><div class="line">    <span class="comment">// 否则会造成桌面和AllApps界面不一致现象</span></div><div class="line">    <span class="keyword">if</span> (<span class="string">"com.android.calendar"</span>.equals(componentName.getPackageName())) &#123;</div><div class="line">        entry = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/// add show date feature in calendar icon @&#125;</span></div><div class="line">    <span class="keyword">if</span> (entry == <span class="keyword">null</span> || (entry.isLowResIcon &amp;&amp; !useLowResIcon)) &#123;</div><div class="line">        entry = <span class="keyword">new</span> CacheEntry();</div><div class="line">        mCache.put(cacheKey, entry);</div><div class="line"></div><div class="line">        <span class="comment">// Check the DB first.</span></div><div class="line">        <span class="comment">/// add show date feature in calendar icon @&#123;</span></div><div class="line">        <span class="comment">// 直接通过工具类获取最新日历的图标</span></div><div class="line">        <span class="keyword">if</span> (<span class="string">"com.android.calendar"</span>.equals(componentName.getPackageName())) &#123;</div><div class="line">            Log.d(TAG, <span class="string">"MLT: load bitmap."</span>);</div><div class="line">            entry.icon = Utilities</div><div class="line">                    .createCalendarIconBitmap(<span class="keyword">null</span>, mContext);</div><div class="line">        &#125; <span class="keyword">else</span></div><div class="line">        <span class="comment">/// @&#125;</span></div><div class="line">        <span class="keyword">if</span> (!getEntryFromDB(cacheKey, entry, useLowResIcon)) &#123;</div><div class="line">            <span class="keyword">if</span> (info != <span class="keyword">null</span>) &#123;</div><div class="line">                entry.icon = Utilities.createIconBitmap(info.getBadgedIcon(mIconDpi), mContext);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (usePackageIcon) &#123;</div><div class="line">                    CacheEntry packageEntry = getEntryForPackageLocked(</div><div class="line">                            componentName.getPackageName(), user, <span class="keyword">false</span>);</div><div class="line">                    <span class="keyword">if</span> (packageEntry != <span class="keyword">null</span>) &#123;</div><div class="line">                        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"using package default icon for "</span> +</div><div class="line">                                componentName.toShortString());</div><div class="line">                        entry.icon = packageEntry.icon;</div><div class="line">                        entry.title = packageEntry.title;</div><div class="line">                        entry.contentDescription = packageEntry.contentDescription;</div><div class="line"></div><div class="line">                        <span class="keyword">if</span> (LauncherLog.DEBUG_LOADERS) &#123;</div><div class="line">                            LauncherLog.d(TAG, <span class="string">"CacheLocked get title from pms: title = "</span></div><div class="line">                                + entry.title);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (entry.icon == <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"using default icon for "</span> +</div><div class="line">                            componentName.toShortString());</div><div class="line">                    entry.icon = getDefaultIcon(user);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(entry.title) &amp;&amp; info != <span class="keyword">null</span>) &#123;</div><div class="line">            entry.title = info.getLabel();</div><div class="line">            entry.contentDescription = mUserManager.getBadgedLabelForUser(entry.title, user);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> entry;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-在Utilities类中增加获取日历bitmap的方法"><a href="#2-在Utilities类中增加获取日历bitmap的方法" class="headerlink" title="2. 在Utilities类中增加获取日历bitmap的方法"></a>2. 在Utilities类中增加获取日历bitmap的方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 根据日历ICON的设计修改显示日期的位置</span></div><div class="line"><span class="comment">// 输出图片大致为上方 显示星期几 下方显示 日期</span></div><div class="line"><span class="function"><span class="keyword">static</span> Bitmap <span class="title">createCalendarIconBitmap</span><span class="params">(Drawable icon, Context context)</span> </span>&#123;</div><div class="line">    icon = context.getResources()</div><div class="line">            .getDrawable(R.drawable.ic_launcher_calendar_bg, <span class="keyword">null</span>);</div><div class="line">    Bitmap calendarIcon = createIconBitmap(icon,context);</div><div class="line">    Calendar c = Calendar.getInstance();</div><div class="line">    String dayString  = String.valueOf(c.get(Calendar.DAY_OF_MONTH));</div><div class="line">    <span class="keyword">int</span> weekDayIndex = c.get(Calendar.DAY_OF_WEEK);</div><div class="line"></div><div class="line">    String weekDayString = context.getResources()</div><div class="line">            .getStringArray(R.array.week_days)[weekDayIndex-<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">synchronized</span> (sCanvas) &#123;</div><div class="line">        <span class="keyword">final</span> Canvas canvas = sCanvas;</div><div class="line">        canvas.setBitmap(calendarIcon);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">float</span> mDensity = </div><div class="line">                context.getResources().getDisplayMetrics().density;</div><div class="line"></div><div class="line">        <span class="comment">// 绘制当前日期,根据背景图片适配</span></div><div class="line">        Paint mDatePaint = <span class="keyword">new</span> Paint();</div><div class="line">        mDatePaint.setTypeface(Typeface.DEFAULT);</div><div class="line">        mDatePaint.setTextSize((<span class="keyword">int</span>)<span class="number">30F</span> * mDensity);</div><div class="line">        mDatePaint.setColor(<span class="number">0xff000000</span>);</div><div class="line">        mDatePaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        Rect rect = <span class="keyword">new</span> Rect();</div><div class="line">        mDatePaint.getTextBounds(dayString,<span class="number">0</span>,dayString.length(),rect);</div><div class="line">        <span class="keyword">int</span> hoffset = <span class="number">30</span>;</div><div class="line">        <span class="keyword">int</span> width1 = rect.right - rect.left;</div><div class="line">        <span class="keyword">int</span> height1 = rect.bottom - rect.top;</div><div class="line">        <span class="keyword">int</span> width2 = calendarIcon.getWidth();</div><div class="line">        <span class="keyword">int</span> height2 = calendarIcon.getHeight() + hoffset;</div><div class="line"></div><div class="line">        canvas.drawText(dayString,(width2 - width1)/<span class="number">2</span></div><div class="line">                - rect.left,(height2 - height1)/<span class="number">2</span> - rect.top,mDatePaint);</div><div class="line"></div><div class="line">        <span class="comment">// 绘制星期几,根据背景图片进行适配</span></div><div class="line">        Paint weekDayPaint = <span class="keyword">new</span> Paint();</div><div class="line">        weekDayPaint.setTypeface(Typeface.DEFAULT);</div><div class="line">        weekDayPaint.setColor(Color.WHITE);</div><div class="line">        weekDayPaint.setTextSize((<span class="keyword">int</span>)<span class="number">12F</span> * mDensity);</div><div class="line">        weekDayPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        weekDayPaint.getTextBounds(weekDayString,</div><div class="line">                <span class="number">0</span>, weekDayString.length(), rect);</div><div class="line">        hoffset = <span class="number">30</span>;</div><div class="line">        width1 = rect.right - rect.left;</div><div class="line">        height1 = rect.bottom - rect.top;</div><div class="line">        canvas.drawText(weekDayString,</div><div class="line">                (width2 - width1)/<span class="number">2</span> - rect.left, <span class="number">45</span>, weekDayPaint);</div><div class="line">        canvas.setBitmap(<span class="keyword">null</span>);</div><div class="line">        <span class="keyword">return</span> calendarIcon;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-在LauncherAppState的构造方法中增加intentfilter-用于接收时间和日期变化"><a href="#3-在LauncherAppState的构造方法中增加intentfilter-用于接收时间和日期变化" class="headerlink" title="3. 在LauncherAppState的构造方法中增加intentfilter,用于接收时间和日期变化"></a>3. 在LauncherAppState的构造方法中增加intentfilter,用于接收时间和日期变化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="title">LauncherAppState</span><span class="params">()</span> </span>&#123;</div><div class="line">    ...</div><div class="line"></div><div class="line">    filter.addAction(Intent.ACTION_TIME_CHANGED);</div><div class="line">    filter.addAction(Intent.ACTION_DATE_CHANGED);</div><div class="line">    filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-在LauncherModel中实现日期时间变化广播的接收和处理"><a href="#4-在LauncherModel中实现日期时间变化广播的接收和处理" class="headerlink" title="4. 在LauncherModel中实现日期时间变化广播的接收和处理"></a>4. 在LauncherModel中实现日期时间变化广播的接收和处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">onReceive() &#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">if</span> (...) &#123;</div><div class="line">        ...</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_DATE_CHANGED.equals(action) ||</div><div class="line">        Intent.ACTION_TIME_CHANGED.equals(action) ||</div><div class="line">        Intent.ACTION_TIMEZONE_CHANGED.equals(action)) &#123;</div><div class="line">        <span class="keyword">final</span> String packageName = <span class="string">"com.android.calendar"</span>;</div><div class="line">        enqueuePackageUpdated(<span class="keyword">new</span> PackageUpdatedTask(</div><div class="line">        PackageUpdatedTask.OP_UPDATE, <span class="keyword">new</span> String[]&#123;packageName&#125;,</div><div class="line">        UserHandleCompat.myUserHandle()));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-增加-res-values-array-xml"><a href="#5-增加-res-values-array-xml" class="headerlink" title="5. 增加 res/values/array.xml"></a>5. 增加 res/values/array.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">"week_days"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>SUN<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>MON<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>TUE<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>WED<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>THU<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>FRI<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>SAT<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="6-增加res-values-ZH-rCN-array-xml"><a href="#6-增加res-values-ZH-rCN-array-xml" class="headerlink" title="6. 增加res/values-ZH-rCN/array.xml"></a>6. 增加res/values-ZH-rCN/array.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">"week_days"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期天<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期四<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期五<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>星期六<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></div></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2017/08/31/calendar-launcher3-icon-update/" data-id="cj70lf0x30000tgcfsb3ikw16" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/laiyang" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/08/31/nfc-share-file/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">通过NFC分享文件</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/31/calendar-launcher3-icon-update/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Android/Calendar/">Calendar</a></p>
+                            <p class="item-title"><a href="/2017/08/31/calendar-launcher3-icon-update/" class="title">桌面日历图标更新日期功能</a></p>
+                            <p class="item-date"><time datetime="2017-08-31T09:19:33.000Z" itemprop="datePublished">2017-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/31/nfc-share-file/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/sample.jpg)" alt="通过NFC分享文件" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Android/nfc/">nfc</a></p>
+                            <p class="item-title"><a href="/2017/08/31/nfc-share-file/" class="title">通过NFC分享文件</a></p>
+                            <p class="item-date"><time datetime="2017-08-31T06:01:09.000Z" itemprop="datePublished">2017-08-31</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Calendar/">Calendar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/nfc/">nfc</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/">Calendar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/share/">share</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/share/" style="font-size: 10px;">share</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Leon</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2017/08/31/calendar-launcher3-icon-update/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

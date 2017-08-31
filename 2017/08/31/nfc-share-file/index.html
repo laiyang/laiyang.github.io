@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>通过NFC分享文件 | laheman</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android,share" />
+    
+    <meta name="description" content="发送文件到其他设备Android Bean 文件传输功能有以下要求:  Android4.1以上支持大文件传输 只有放在外部存储中的文件才可以传输 传输的文件必须是 world-readable.可以通过File.setReadable)设置权限 必须提供文件的URI,Android Beam 文件传输无法处理通过FileProvider.getUriForFile) 生成的内容URIs声明使用">
+<meta name="keywords" content="Android,share">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过NFC分享文件">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/nfc-share-file/index.html">
+<meta property="og:site_name" content="laheman">
+<meta property="og:description" content="发送文件到其他设备Android Bean 文件传输功能有以下要求:  Android4.1以上支持大文件传输 只有放在外部存储中的文件才可以传输 传输的文件必须是 world-readable.可以通过File.setReadable)设置权限 必须提供文件的URI,Android Beam 文件传输无法处理通过FileProvider.getUriForFile) 生成的内容URIs声明使用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/sample.jpg">
+<meta property="og:updated_time" content="2017-08-31T09:02:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过NFC分享文件">
+<meta name="twitter:description" content="发送文件到其他设备Android Bean 文件传输功能有以下要求:  Android4.1以上支持大文件传输 只有放在外部存储中的文件才可以传输 传输的文件必须是 world-readable.可以通过File.setReadable)设置权限 必须提供文件的URI,Android Beam 文件传输无法处理通过FileProvider.getUriForFile) 生成的内容URIs声明使用">
+<meta name="twitter:image" content="http://yoursite.com/images/sample.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="laheman" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/board">哈哈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/archives">归档</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Android/nfc/">nfc</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-nfc-share-file" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        通过NFC分享文件
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/08/31/nfc-share-file/" class="article-date">
+            <time datetime="2017-08-31T06:01:09.000Z" itemprop="datePublished">2017-08-31</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/share/">share</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/sample.jpg" alt=""><br></p>
+<h1 id="发送文件到其他设备"><a href="#发送文件到其他设备" class="headerlink" title="发送文件到其他设备"></a>发送文件到其他设备</h1><p>Android Bean 文件传输功能有以下要求:</p>
+<ol>
+<li>Android4.1以上支持大文件传输</li>
+<li>只有放在外部存储中的文件才可以传输</li>
+<li>传输的文件必须是 world-readable.可以通过<a href="https://developer.android.google.cn/reference/java/io/File.html#setReadable(boolean" target="_blank" rel="external">File.setReadable</a>)设置权限</li>
+<li>必须提供文件的URI,Android Beam 文件传输无法处理通过<a href="https://developer.android.google.cn/reference/android/support/v4/content/FileProvider.html#getUriForFile(android.content.Context, java.lang.String, java.io.File" target="_blank" rel="external">FileProvider.getUriForFile</a>) 生成的内容URIs<h2 id="声明使用该Feature在Manifest中"><a href="#声明使用该Feature在Manifest中" class="headerlink" title="声明使用该Feature在Manifest中"></a>声明使用该Feature在Manifest中</h2><strong>请求权限</strong></li>
+</ol>
+<p>NFC</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.NFC"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>READ_EXTERNAL_STORAGE<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>指定NFC feature</strong></p>
+<p>设置android:required为true表明你的应用NFC功能是必须的<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-feature</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"android.hardware.nfc"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:required</span>=<span class="string">"true"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<p>如果设置android:required为false,表明nfc功能是可选的,那么就需要通过<a href="https://developer.android.google.cn/reference/android/content/pm/PackageManager.html#hasSystemFeature(java.lang.String" target="_blank" rel="external">PackageManager.hasSystemFeature()</a>)检测设备是否包含此功能.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    NfcAdapter mNfcAdapter;</div><div class="line">    <span class="keyword">boolean</span> mAndroidBeamAvailable = <span class="keyword">false</span>;</div><div class="line">    ...</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceSate)</span> </span>&#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">if</span> (!PackageManager.hasSystemFeature(PackageManager.FEATURE_NFC)) &#123;</div><div class="line">            ...</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.JELLY_BEAN_MR1) &#123;</div><div class="line">            mAndroidBeamAvailable = <span class="keyword">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mNfcAdapter = NfcAdapter.getDeafaultAdapter(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="创建回调来提供文件"><a href="#创建回调来提供文件" class="headerlink" title="创建回调来提供文件"></a>创建回调来提供文件</h2><p>注册一个回调,当用户想要发送文件给另一个NFC设备时给系统调用,调用回调方法,返回一个Uri数组给接收方<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Uri[] mFileUris = <span class="keyword">new</span> Uri[<span class="number">10</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> FileUriCallback mFileUriCallabck;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUriCallback</span> <span class="keyword">implements</span></span></div><div class="line"><span class="class">            <span class="title">NfcAdapter</span>.<span class="title">CreateBeamUrisCallback</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">FileUriCallback</span><span class="params">()</span> </span>&#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> Uri[] createBeamUris(NfcEvent event) &#123;</div><div class="line">            <span class="keyword">return</span> mFilUris;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function">prortected <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        mNfcAdapter = NfcAdapter.getDeafultAdapter(<span class="keyword">this</span>);</div><div class="line">        mFileUriCallback = <span class="keyword">new</span> FileUriCallback();</div><div class="line">        mNfcAdapter.setBeamPushUrisCallback(mFileUriCallback, <span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>指定发送的文件</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Uri[] mFileUris = <span class="keyword">new</span> Uri[<span class="number">10</span>];</div><div class="line">String transferFile = <span class="string">"transferimage.jpg"</span>;</div><div class="line">File extDir = getExternalFilesDir(<span class="keyword">null</span>);</div><div class="line">File requestFile = <span class="keyword">new</span> File(extDir, transferFile);</div><div class="line">requestFile.setReadable(<span class="keyword">true</span>, <span class="keyword">false</span>);</div><div class="line">fileUri = Uri.fromFile(requestFile);</div><div class="line"><span class="keyword">if</span> (fileUri != <span class="keyword">null</span>) &#123;</div><div class="line">    mFileUris[<span class="number">0</span>] = fileUri;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    Log.e(TAG, <span class="string">"No File URI available for file"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="接收文件"><a href="#接收文件" class="headerlink" title="接收文件"></a>接收文件</h1><p>接收方收到文件后,会产生一个action为ACTION_VIEW的Intent的通知,包含第一个文件的MIME 类型,第一个文件的URI.当用户点击这条通知时,这个Intent从系统发出.要接收这个Intent,需要在activity节点添加<intent-filter>,例如:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"com.example.android.nfctransfer.ViewActivity"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">"Android Beam Viewer"</span>&gt;</span></div><div class="line">    ...</div><div class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.View"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"mime-type"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure></intent-filter></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2017/08/31/nfc-share-file/" data-id="cj70lf0xa0002tgcfi9r2tami" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/laiyang" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/31/calendar-launcher3-icon-update/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            桌面日历图标更新日期功能
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/31/calendar-launcher3-icon-update/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Android/Calendar/">Calendar</a></p>
+                            <p class="item-title"><a href="/2017/08/31/calendar-launcher3-icon-update/" class="title">桌面日历图标更新日期功能</a></p>
+                            <p class="item-date"><time datetime="2017-08-31T09:19:33.000Z" itemprop="datePublished">2017-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/31/nfc-share-file/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/sample.jpg)" alt="通过NFC分享文件" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Android/nfc/">nfc</a></p>
+                            <p class="item-title"><a href="/2017/08/31/nfc-share-file/" class="title">通过NFC分享文件</a></p>
+                            <p class="item-date"><time datetime="2017-08-31T06:01:09.000Z" itemprop="datePublished">2017-08-31</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Calendar/">Calendar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/nfc/">nfc</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/">Calendar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/share/">share</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/share/" style="font-size: 10px;">share</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Leon</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2017/08/31/nfc-share-file/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
